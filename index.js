@@ -7,9 +7,9 @@ try {
         function (_, res) {
           const download = res.match(
             /https\:\/\/minecraft\.azureedge\.net\/bin-win\/bedrock-server-\d+\.\d+\.\d+\.\d+\.zip/gm
-          )[0];
+          )[0]?.replace(/http(s)?:\/\//g,"");
           const version = download.match(
-            /(?<=https\:\/\/minecraft\.azureedge\.net\/bin-win\/bedrock-server-)\d+\.\d+\.\d+\.\d+(?=\.zip)/gm
+            /(?<=(https\:\/\/)?minecraft\.azureedge\.net\/bin-win\/bedrock-server-)\d+\.\d+\.\d+\.\d+(?=\.zip)/gm
           )[0];
       
           fs.writeFileSync(

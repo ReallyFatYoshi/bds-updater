@@ -11,8 +11,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
+      - name: Run scripts
         run: |
-            npm install
             npm start
       - name: Update Config
         uses: test-room-7/action-update-file@v1
