@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "scripts": {
+    "start":"package.json"
+  },
+  "dependencies": {
+    "axios": "^1.2.1"
+  }
+}

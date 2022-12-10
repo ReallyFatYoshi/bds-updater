@@ -1,0 +1,22 @@
+name: "Config updater."
+on:
+  schedule:
+    - cron: "*/1 * * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+        run: |
+            npm install
+            npm start
+      - name: Update Config
+        uses: test-room-7/action-update-file@v1
+        with:
+            file-path: config.json
+            commit-msg: Update resources
+            github-token: ${{ secrets.GITHUB_TOKEN }}
