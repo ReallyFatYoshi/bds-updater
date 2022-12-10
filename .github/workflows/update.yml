@@ -1,4 +1,4 @@
-name: "Config updater."
+name: "Config updater"
 on:
   schedule:
     - cron: "*/1 * * * *"
