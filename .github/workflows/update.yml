@@ -13,7 +13,7 @@ jobs:
           node-version: 16.x
       - name: Run scripts
         run: |
-            npm start
+            node index.js
       - name: Update Config
         uses: test-room-7/action-update-file@v1
         with:
