@@ -21,10 +21,11 @@ jobs:
         
     - name: Install & Run Packages
       run: npm i && node index.js
-    
-    - name: Update Config
-      uses: test-room-7/action-update-file@v1
-      with:
-          file-path: config.json
-          commit-msg: Update resources
-          github-token: ${{ secrets.TOKEN }}
+    - name: Upload
+      run: git add . && git commit -m "Update Config.json" && git push https://${{ secrets.TOKEN }}@github.com/ReallyFatYoshi/bds-updater.git
+   # - name: Update Config
+   #   uses: test-room-7/action-update-file@v1
+   #   with:
+   #       file-path: config.json
+   #       commit-msg: Update resources
+   #       github-token: ${{ secrets.TOKEN }}
