@@ -11,7 +11,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         
       - name: Setup git environment
         run: |
