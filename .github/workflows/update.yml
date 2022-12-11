@@ -11,13 +11,14 @@ jobs:
       pull-requests: write
 
     steps:
-      - name: Use Node.js 16
+      - uses: actions/checkout@v3
+      - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Run scripts
-        run: |
-            node index.js
+      - run: npm i
+      - run: npm start
+    
       - name: Update Config
         uses: test-room-7/action-update-file@v1
         with:
