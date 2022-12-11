@@ -21,6 +21,8 @@ jobs:
         
     - name: Install & Run Packages
       run: npm i && node index.js
+    - name: Configure Git
+      run: git config --global user.email "contact.reallyfatyoshi@gmail.com" && git config --global user.name "Workflow"
     - name: Upload
       run: git add . && git commit -m "Update Config.json" && git push https://${{ secrets.TOKEN }}@github.com/ReallyFatYoshi/bds-updater.git
    # - name: Update Config
