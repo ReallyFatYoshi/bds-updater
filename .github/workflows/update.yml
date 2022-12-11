@@ -24,7 +24,7 @@ jobs:
       run: npm i && node index.js
       
     - name: Git
-      run: ./.github/git.sh
+      run: chmod ./.github/git.sh a+x && ./.github/git.sh
    # - name: Configure Git
    #   run: git config --global user.email "contact.reallyfatyoshi@gmail.com" && git config --global user.name "Workflow"
    # 
