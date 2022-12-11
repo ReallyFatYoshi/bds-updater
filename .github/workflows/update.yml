@@ -27,4 +27,4 @@ jobs:
       with:
           file-path: config.json
           commit-msg: Update resources
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.TOKEN }}
