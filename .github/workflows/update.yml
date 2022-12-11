@@ -1,4 +1,4 @@
-name: "Config updater"
+name: "Check and Update"
 on:
   schedule:
     - cron: "*/5 * * * *"
@@ -11,17 +11,20 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm i
-      - run: node infex.js
+    - name: Checkout repository
+      uses: actions/checkout@master
     
-      - name: Update Config
-        uses: test-room-7/action-update-file@v1
-        with:
-            file-path: config.json
-            commit-msg: Update resources
-            github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Set up Node.js
+      uses: actions/setup-node@master
+      with:
+        node-version: 16.17.0
+        
+    - name: Install & Run Packages
+      run: npm i && node index.js
+    
+    - name: Update Config
+      uses: test-room-7/action-update-file@v1
+      with:
+          file-path: config.json
+          commit-msg: Update resources
+          github-token: ${{ secrets.GITHUB_TOKEN }}
