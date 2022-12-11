@@ -1,16 +1,20 @@
 name: "Config updater"
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "*/5 * * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
     steps:
-      - name: Use Node.js 16.x
+      - name: Use Node.js 16
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 16
       - name: Run scripts
         run: |
             node index.js
