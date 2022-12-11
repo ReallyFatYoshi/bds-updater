@@ -13,10 +13,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         
-      - name: Setup git environment
+      - name: Setup Git Environment
         run: |
          git config --global user.email "contact.reallyfatyoshi@gmail.com" 
-         git config --global user.name "Workflow"
+         git config --global user.name "ReallyFatYoshi"
       
       - name: Setup Node.js
         uses: actions/setup-node@master
