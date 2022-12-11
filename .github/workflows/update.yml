@@ -9,31 +9,25 @@ jobs:
     permissions:
       issues: write
       pull-requests: write
-    env:
-      token: ${{ secrets.TOKEN }}
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@master
-    
-    - name: Set up Node.js
-      uses: actions/setup-node@master
-      with:
-        node-version: 16.17.0
+      - name: Checkout repository
+        uses: actions/checkout@master
         
-    - name: Install & Run Packages
-      run: npm i && node index.js
+      - name: Setup git environment
+        run: |
+         git config --global user.email "contact.reallyfatyoshi@gmail.com" 
+         git config --global user.name "Workflow"
       
-    - name: Git
-      run: chmod a+x ./.github/git.sh && ./.github/git.sh
-   # - name: Configure Git
-   #   run: git config --global user.email "contact.reallyfatyoshi@gmail.com" && git config --global user.name "Workflow"
-   # 
-   # - name: Upload
-   #   run: git add . && git commit -m "Update Config.json" && git push https://${{ secrets.TOKEN }}@github.com/ReallyFatYoshi/bds-updater.git
-   
-   # - name: Update Config
-   #   uses: test-room-7/action-update-file@v1
-   #   with:
-   #       file-path: config.json
-   #       commit-msg: Update resources
-   #       github-token: ${{ secrets.TOKEN }}
+      - name: Setup Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 16.17.0
+
+      - name: Install Packages & Run Script
+        run: npm i && node index.js
+
+      - name: Git Push
+        run: |
+          git add --all
+          git commit -m "Configuration Update"
+          git push
