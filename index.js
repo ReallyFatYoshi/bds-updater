@@ -17,7 +17,9 @@ try {
             JSON.stringify({
               download,
               version,
-            })
+            },
+            null
+            3)
           );
         }
       );
