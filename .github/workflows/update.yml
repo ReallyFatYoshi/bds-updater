@@ -1,4 +1,4 @@
-name: "Check and Update"
+name: "Fork"
 on:
   schedule:
     - cron: "*/5 * * * *"
