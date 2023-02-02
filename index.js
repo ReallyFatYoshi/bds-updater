@@ -8,15 +8,18 @@ try {
           const download = res.match(
             /https\:\/\/minecraft\.azureedge\.net\/bin-win\/bedrock-server-\d+\.\d+\.\d+\.\d+\.zip/gm
           )[0]?.replace(/http(s)?:\/\//g,"");
-          const version = download.match(
+          const stableversion = download.match(
             /(?<=(https\:\/\/)?minecraft\.azureedge\.net\/bin-win\/bedrock-server-)\d+\.\d+\.\d+\.\d+(?=\.zip)/gm
           )[0];
       
           fs.writeFileSync(
             "./win/config.json",
             JSON.stringify({
-              download: `https://minecraft.azureedge.net/bin-win/bedrock-server-${version}.zip`,
-              version,
+              preview: {},
+              stable: {
+                download: `https://minecraft.azureedge.net/bin-win/bedrock-server-${stableversion}.zip`,
+                version: stableversion,
+              },
             },
             0,
             3)
@@ -25,8 +28,11 @@ try {
           fs.writeFileSync(
             "./linux/config.json",
             JSON.stringify({
-              download: `https://minecraft.azureedge.net/bin-linux/bedrock-server-${version}.zip`,
-              version,
+              preview: {},
+              stable: {
+                download: `https://minecraft.azureedge.net/bin-linux/bedrock-server-${stableversion}.zip`,
+                version: stableversion,
+              },
             },
             0,
             3)
