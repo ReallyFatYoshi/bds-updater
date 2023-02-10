@@ -14,10 +14,10 @@ try {
             
           const stableversion = downloadStable.match(
             /(?<=(https\:\/\/)?minecraft\.azureedge\.net\/bin-win\/bedrock-server-)(\d+(\.)?){3,4}(?=\.zip)/gm
-          )[0];
+          )[0] ?? 0;
           const previewversion = downloadStable.match(
             /(?<=(https\:\/\/)?minecraft\.azureedge\.net\/bin-win-preview\/bedrock-server-)(\d+(\.)?){3,4}(?=\.zip)/gm
-          )[0];
+          )[0] ?? 0;
       
           fs.writeFileSync(
             "./win/config.json",
