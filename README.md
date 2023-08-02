@@ -1,2 +1,2 @@
 # bds-updater
-A script that is used to update and install bds. (Works only for windows currently)
+A batch script that updates or installs bds. (Works only for windows currently)
